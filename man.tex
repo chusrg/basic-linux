@@ -1,0 +1,102 @@
+\section{man}
+
+\cmd{man} - сокращение от manual, команда позволяет просматривать справочную информацию о программах Linux или командах shell-оболочки (\cmd{bash, sh, dash, zsh} и пр.), форматах конфигурационных файлов, специальных файлов устройств, описание системных вызовов или библиотечных вызовов и системных команд администратора. Пример формата вызова \cmd{man}:
+
+\begin{lstlisting}
+	
+	$ man [section] page
+	
+\end{lstlisting}	
+
+\begin{itemize}	
+	\item \textit{section} тип страницы справочной информации:
+	
+	\subitem \opt{1}{программы или команды shell-оболочки}
+	\subitem \opt{2}{системные вызовы (функции ядра: fork, accept, listen, select, mmap и пр.)}
+	\subitem \opt{3}{библиотечные вызовы (функции библиотек: fopen, pow, malloc и пр.)}
+	\subitem \opt{4}{специальные файлы (обычно находящиеся в \cfgpath{/dev/}: random, mem, tty и пр.)}
+	\subitem \opt{5}{форматы файлов (\cfgfile{/etc/passwd}, \cfgfile{/etc/shadow},  \cfgfile{$\sim$/.ssh/authorized\_keys} и пр.)}
+	\subitem \opt{6}{игры}
+	\subitem \opt{7}{описания, соглашения и пр.}
+	\subitem \opt{8}{команды системного администратора (доступные только для root и/или sudo-пользователя: \cmd{ss, adduser, sysctl} и пр.)}
+
+	\item \textit{page} имя программы, команды, конфигурационного файла, системного вызова и т.д.
+\end{itemize}
+
+Посмотреть информацию о команде \cmd{man}:
+\begin{lstlisting}
+	
+	$ man man
+	
+\end{lstlisting}
+
+После входа в интерактивный режим \cmd{man} доступны следующие функции:
+
+\noindent\keys{ q } -- выход из \cmd{man} (обратить внимание, чтобы раскладка была английской) \\
+\keys{ h } -- посмотреть помощь по навигации \cmd{man} \\
+
+\noindent\keys{ u } / \keys{ d } -- пролистать на пол экрана вверх/вниз \\
+\keys{ y } или \keys{ \arrowkeyup } -- пролистать на одну строку вверх \\
+\keys{ e } или \keys{ \arrowkeydown } -- пролистать на одну строку вниз \\
+\keys{ w } / \keys{ PgUp } -- пролистать на один экран вверх\\
+\keys{ z } / \keys{ PgDown } -- пролистать на один экран вниз\\
+\keys{ g } / \keys{ G }  -- переместиться в начало/конец документа \\
+
+\noindent\keys{ / } + \textit{ввести шаблон поиска} -- прямой поиск по шаблону\\
+\keys{ ? } + \textit{ввести шаблон поиска} -- обратный поиск по шаблону\\
+\keys{ n } / \keys{ N } -- повторить предыдущий поиск в прямом/обратном направлении\\
+
+Для включения/отключения нумерации строк в режиме просмотра справочной страницы необходимо ввести соответствующие опции и нажать \keys{ Enter }:\\ 
+\noindent
+\opt{-N}{включить нумерацию строк}\\
+\opt{-n}{выключить нумерацию строк}\\
+
+Показать все доступные разделы справочной информации по \cmd{passwd}:
+\begin{lstlisting}
+	
+	$ man -f passwd
+	
+\end{lstlisting}	
+
+
+Показать раздел 1 справочной информации для команды \cmd{passwd}:
+\begin{lstlisting}
+	
+	$ man 1 passwd
+	
+\end{lstlisting}	
+
+Показать раздел 5 справочной информации о формате файла \cfgfile{/etc/passwd}:
+\begin{lstlisting}
+	
+	$ man 5 passwd
+	
+\end{lstlisting}	
+
+Поиск всех справочных страниц в названии или описании которых встречается \textit{ls}:
+\begin{lstlisting}
+	
+	$ man -k ls
+	
+\end{lstlisting}	
+
+Поиск по всем справочным страницам сочетания слов \textit{password change}:
+\begin{lstlisting}
+	
+	$ man -K "password change"
+	
+\end{lstlisting}	
+\keys{ Enter } -- открыть страницу из результата поиска\\
+\keys{ Ctrl + D } -- пропустить страницу\\
+\keys{ Ctrl + C } -- закрыть поиск\\
+
+Просмотреть страницу справки команды \cmd{man} на русском языке (если страница справки с соответствующей русской локалью \textit{ru\_RU} имеется в системе):
+\begin{lstlisting}
+	
+	$ man -L ru_RU man
+	
+\end{lstlisting}	
+
+\noindent
+\cfgfile{/etc/manpath.config} -- файл настройки man-db\\
+\cfgpath{/usr/share/man/} -- здесь расположены файлы со справочными страницами\\

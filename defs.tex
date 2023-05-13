@@ -1,25 +1,19 @@
-\newcommand{\cmdquote}[1]{% команда для рисования кнопок клавиатуры
-	\begin{minipage}{0.9\textwidth} 
-		\fbox{
-			\parbox{\textwidth}{    
-				\texttt{\$ #1}
-			}
-		}
-	\end{minipage}  
-}   
+%
+% Определение новых команд используемых при написании документа, для единообразия оформления
+%
 
-\newcommand*\keystroke[1]{% команда для рисования кнопок клавиатуры
-	\tikz[baseline=(key.base)]
-	\node[%
-	draw,
-	fill=white,
-	drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black,opacity=0.75},
-	rectangle,
-	rounded corners=2pt,
-	inner sep=1pt,
-	line width=0.5pt,
-	font=\scriptsize\sffamily
-	](key) {#1\strut}
-	;
+\renewcommand{\cmd}[1]{% команда консоли
+	\texttt{#1}
 }
 
+\newcommand{\opt}[2]{% опция команды
+	\textbf{#1} -- #2
+}   
+
+\newcommand{\cfgfile}[1]{% конфигурационный файл или файл с настройками
+	\textcolor{red}{#1}
+}   
+
+\newcommand{\cfgpath}[1]{% путь к настройкам или части системы
+	\textcolor{blue}{#1}
+}   

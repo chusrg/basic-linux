@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}				% поддержка UTF8
 \usepackage[english,russian]{babel}  	% поддержки русского языка
 \usepackage{listings}					% листинги с кодом
+\usepackage{menukeys}					% кнопки клавиатуры
 \usepackage[unicode, pdftex]{hyperref}	% гиперссылки
 \usepackage{outlines}					% многоуровневые списки
 \usepackage{indentfirst}				% первый абзац
@@ -9,7 +10,6 @@
 \usepackage{xcolor}
 \usepackage{geometry}
 \usepackage{tikz}
-\usetikzlibrary{shadows}
 
 \setcounter{secnumdepth}{3}				% вложенность секций до третьего уровня
 
@@ -48,8 +48,10 @@
 \begin{document}
 	\tableofcontents
 	
+	
 	\include{defs}
 	\include{chapter-01}
+	\include{man}
 	
 	\appendix
 %	\include{appendixA}
