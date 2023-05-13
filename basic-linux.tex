@@ -1,0 +1,61 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}				% поддержка UTF8
+\usepackage[english,russian]{babel}  	% поддержки русского языка
+\usepackage{listings}					% листинги с кодом
+\usepackage[unicode, pdftex]{hyperref}	% гиперссылки
+\usepackage{outlines}					% многоуровневые списки
+\usepackage{indentfirst}				% первый абзац
+\usepackage{cmap}       				% теперь из pdf можно копипастить русский текст
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+
+\setcounter{secnumdepth}{3}				% вложенность секций до третьего уровня
+
+\usefont{T2A}{ftm}{m}{} % Ужирнение начертания шрифта --- после чего
+% выглдяит таймсоподобно и удобнее для чтения
+% в плохих условиях.
+
+\geometry{verbose,a4paper,tmargin=2cm,bmargin=2cm,lmargin=2.5cm,rmargin=1.5cm}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=none,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+
+\begin{document}
+	\tableofcontents
+	
+	\include{defs}
+	\include{chapter-01}
+	
+	\appendix
+%	\include{appendixA}
+	
+	
+%	\bibliographystyle{plain}
+%	\bibliography{links}
+	
+\end{document}
